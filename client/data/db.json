@@ -1,0 +1,36 @@
+{
+    "Users": [
+        {
+            "id": 1,
+            "username": "carlos_adams",
+            "password": "123456",
+            "email": "aaa@correo.com",
+            "img": "https://pbs.twimg.com/profile_images/1306540900923904000/MqiFZxSO_400x400.jpg",
+            "wallets": [ {
+                "url": "1F1tAaz5x1HUXrCNLbtMDqcw6o5GNn4xqX",
+                "crypto": "BTC"                
+            },
+            {
+                "url": "1F1tAaz5x1HUXrCNLbtMDqcw6o5GNn4xqX",
+                "crypto": "DOGE"                
+            }        
+        ]
+        },
+        {
+            "id": 2,
+            "username": "Willyrex",
+            "password": "123456",
+            "email": "aaass@correo.com",
+            "img": "https://esports.as.com/2021/01/12/youtube/WillyRex-YouTube_1427867229_564694_1440x810.jpg",
+            "wallets": [ {
+                "url": "1F1tAaz5x1HUXrCNLbtMDqcw6o5GNn4xqX",
+                "crypto": "ETH"                
+            },
+            {
+                "url": "1F1tAaz5x1HUXrCNLbtMDqcw6o5GNn4xqX",
+                "crypto": "BTC"                
+            }
+         ]
+        }
+    ]
+}
