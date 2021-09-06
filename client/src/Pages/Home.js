@@ -9,14 +9,10 @@ import {
   makeStyles,
 } from "@material-ui/core";
 
-import AccountCircleSharpIcon from "@material-ui/icons/AccountCircleSharp";
-import { useHistory } from "react-router";
-import axios from "axios";
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import PreviewCard from "../components/PreviewCard";
-import { CardContext } from "../context/cardInfoContext";
 import { AuthContext } from "../context/authContext";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import axiosClient from "../config/axios";
@@ -60,8 +56,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Home() {
   const [cards, setCards] = useState([]);
-  const history = useHistory();
-  const { setCardId } = useContext(CardContext);
 
   const classes = useStyles();
 
@@ -76,7 +70,7 @@ function Home() {
 
   useEffect(() => {
     getdata();
-  }, [cards]);
+  }, []);
 
   const logOutHandler = (e) => {
     tokenSetter();

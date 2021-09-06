@@ -53,6 +53,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgba(255, 255, 255, .25)",
     marginBottom: 20,
   },
+  deleteUser: {
+    display: "flex",
+    justifyContent: "center",
+  },
 }));
 
 function Dashboard() {
@@ -60,6 +64,7 @@ function Dashboard() {
   const classes = useStyles();
   const { authState, getIdFromjwt, tokenSetter } = useContext(AuthContext);
   const { setCardId } = useContext(CardContext);
+  const [count, setCount] = useState(0);
   const userId = getIdFromjwt(authState.token);
 
   const [wallet, setWallet] = useState({
@@ -105,6 +110,7 @@ function Dashboard() {
         },
         config
       );
+      getUserWallets();
     } catch (error) {
       console.log(error);
     }
@@ -141,7 +147,7 @@ function Dashboard() {
 
   useEffect(() => {
     getUserWallets();
-  }, [userWallets]);
+  }, []);
 
   const deleteUserHandler = (e) => {
     let config = {
@@ -171,7 +177,7 @@ function Dashboard() {
         <Grid container spacing={3} className={classes.gridContainer}>
           {userWallets.map((wallet) => (
             <Grid item xs={12} md={6} lg={4} key={wallet._id}>
-              <ManageWallet wallet={wallet} />
+              <ManageWallet wallet={wallet} getUserWallets={getUserWallets()} />
             </Grid>
           ))}
         </Grid>
@@ -218,7 +224,10 @@ function Dashboard() {
             </Button>
           </form>
         </Card>
-        <Button onClick={(e) => deleteUserHandler(e)}>
+        <Button
+          onClick={(e) => deleteUserHandler(e)}
+          className={classes.deleteUser}
+        >
           Delete your account
         </Button>
         <Link className={classes.link} to={`/card/${userId}`} target="_blank">

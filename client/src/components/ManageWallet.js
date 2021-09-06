@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ManageWallet(wallet) {
+function ManageWallet(wallet, getUserWallets) {
   const classes = useStyles();
   const [showForm, setShowFrom] = useState(false);
   const [walletPut, setWalletPut] = useState({
@@ -62,6 +62,7 @@ function ManageWallet(wallet) {
 
     try {
       await axiosClient.delete(url, config);
+      getUserWallets();
     } catch (error) {
       console.log(error);
     }
@@ -80,8 +81,9 @@ function ManageWallet(wallet) {
     try {
       await axiosClient.put(url, walletPut, config);
       handleShowForm();
+      getUserWallets();
     } catch (error) {
-      setAlert(error.response.data.msg);
+      console.log(error);
     }
   };
 
