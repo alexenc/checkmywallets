@@ -37,8 +37,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "35px",
   },
   addWalletContainer: {
-    width: "55vh",
+    width: "50vh%",
     marginTop: 10,
+    backgroundColor: "rgba(255, 255, 255, .25)",
+    backdropFilter: "blur(5px)",
   },
   link: {
     textDecoration: "none",
@@ -56,6 +58,8 @@ const useStyles = makeStyles((theme) => ({
   deleteUser: {
     display: "flex",
     justifyContent: "center",
+    color: "red",
+    cursor: "pointer",
   },
 }));
 
@@ -196,7 +200,7 @@ function Dashboard() {
           >
             <TextField
               className={classes.field}
-              label="Adress"
+              label="Address"
               color="secondary"
               value={wallet.direction}
               variant="outlined"
@@ -208,7 +212,7 @@ function Dashboard() {
             />
             <TextField
               className={classes.field}
-              label="Crypro"
+              label="Blockchain"
               color="secondary"
               variant="outlined"
               name="type"
@@ -224,16 +228,18 @@ function Dashboard() {
             </Button>
           </form>
         </Card>
-        <Button
-          onClick={(e) => deleteUserHandler(e)}
-          className={classes.deleteUser}
-        >
-          Delete your account
-        </Button>
-        <Link className={classes.link} to={`/card/${userId}`} target="_blank">
-          View your public page
-        </Link>
       </Container>
+      <Link className={classes.link} to={`/card/${userId}`} target="_blank">
+        View your public page
+      </Link>
+      <Typography
+        justifyContent="center"
+        display="flex"
+        onClick={(e) => deleteUserHandler(e)}
+        className={classes.deleteUser}
+      >
+        Delete your account
+      </Typography>
     </>
   );
 }

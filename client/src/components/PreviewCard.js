@@ -18,6 +18,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     display: "flex",
     padding: 20,
+    backgroundColor: "rgba(255, 255, 255, .25)",
+    backdropFilter: "blur(5px)",
   },
   cardText: {
     marginLeft: 20,

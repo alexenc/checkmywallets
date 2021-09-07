@@ -11,6 +11,8 @@ import axiosClient from "../config/axios";
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: "20px",
+    backgroundColor: "rgba(255, 255, 255, .25)",
+    backdropFilter: "blur(5px)",
   },
   Typography: {
     position: "relative",
